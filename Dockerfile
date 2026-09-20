@@ -2,7 +2,7 @@ FROM python:3.10
 
 # Install system dependencies required by OpenCV
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libsm6 \
     libxext6 \
     && rm -rf /var/lib/apt/lists/*
