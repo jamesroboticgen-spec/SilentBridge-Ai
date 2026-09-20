@@ -194,7 +194,7 @@
     </div>
     
     <div class="footer">
-        &copy; 2026 Silent Bridge Ai. All rights reserved.[cite: 8]
+        &copy; 2026 Silent Bridge Ai. All rights reserved.
     </div>
 
     <script>
@@ -207,10 +207,11 @@
         let isFlipped = false;
         let predictionStarted = false;
 
+        // Redirect directly to the live Sinhala Render site when Sinhala is chosen
         languageSelect.onchange = () => {
             const selectedLang = languageSelect.value;
             if (selectedLang === 'si') {
-                window.location.href = "https://your-sinhala-site-link-here.com"; 
+                window.location.href = "https://silent-bridge-ai-sinhala.onrender.com/"; 
             }
         };
 
@@ -280,9 +281,10 @@
 
         navigator.mediaDevices.addEventListener('devicechange', getCameras);
 
+        // Maximum-frequency continuous translation loop
         async function sendFrame() {
             if (!video.videoWidth || !video.videoHeight) {
-                requestAnimationFrame(sendFrame);
+                setTimeout(sendFrame, 10);
                 return;
             }
 
@@ -295,7 +297,7 @@
                 ctx.scale(-1, 1);
             }
             ctx.drawImage(video, 0, 0, 224, 224);
-            const dataUrl = canvas.toDataURL('image/jpeg');
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
             const base64 = dataUrl.split(',')[1];
 
             try {
@@ -316,7 +318,8 @@
                 result.textContent = 'Prediction error';
             }
             
-            requestAnimationFrame(sendFrame);
+            // Fires back-to-back immediately for maximum frame throughput
+            setTimeout(sendFrame, 0); 
         }
 
         window.addEventListener('DOMContentLoaded', async () => {
@@ -324,12 +327,12 @@
             video.onplaying = () => {
                 if (!predictionStarted) {
                     predictionStarted = true;
-                    requestAnimationFrame(sendFrame);
+                    sendFrame();
                 }
             };
             if (video.readyState >= 2 && !predictionStarted) {
                 predictionStarted = true;
-                requestAnimationFrame(sendFrame);
+                sendFrame();
             }
         });
     </script>
