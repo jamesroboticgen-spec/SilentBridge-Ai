@@ -1,3 +1,4 @@
+---
 title: My Sign Language Bot
 emoji: 📊
 colorFrom: pink
@@ -10,9 +11,8 @@ license: apache-2.0
 short_description: This app uses a custom machine learning model to detect sign
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
-
+Check out the configuration reference at https://silent-bridge-ai-sinhala.onrender.com/
+"" 
 # Silent Bridge Ai
 
 > **Breaking communication barriers through real-time AI sign language translation in English and Sinhala.**
