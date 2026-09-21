@@ -1,4 +1,3 @@
-<img width="1916" height="963" alt="image" src="https://github.com/user-attachments/assets/9cf7f7b7-c4c9-40e4-b158-2060b4d2f768" />---
 title: My Sign Language Bot
 emoji: 📊
 colorFrom: pink
@@ -12,6 +11,7 @@ short_description: This app uses a custom machine learning model to detect sign
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
 
 # Silent Bridge Ai
 
